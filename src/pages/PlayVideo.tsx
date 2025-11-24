@@ -60,9 +60,7 @@ export function PlayVideo() {
   const playerInstance = useRef<any>(null);
 
   const randomUrls = [
-    'https://otieu.com/4/10069259',
-    'https://viikqoye.com/dc/?blockID=399448',
-    'https://viidedss.com/dc/?blockID=388556'
+    'https://otieu.com/4/10069259'
   ];
 
   useEffect(() => {
