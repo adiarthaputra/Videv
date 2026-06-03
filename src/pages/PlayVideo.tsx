@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { FaCopy, FaDownload, FaPlay, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
-import { useLayout } from '../context/LayoutContext'; // Import hook
+import { useLayout } from '../context/LayoutContext';
 
 declare global {
   interface Window {
@@ -27,7 +27,7 @@ const RecentPostCard = ({ video, onClick }: { video: any, onClick: (videoId: str
       </div>
     </div>
 );
-  
+
 const RecentPostsView = ({ videos, onCardClick }: { videos: any[], onCardClick: (videoId: string) => void }) => (
     <div className="mb-8">
       <h2 className="text-2xl font-bold mb-4 text-gray-300">Recent Posts</h2>
@@ -58,9 +58,8 @@ export function PlayVideo() {
   const videosPerPage = 12;
 
   const playerInstance = useRef<any>(null);
-
   const randomUrls = [
-    'https://otieu.com/4/10069259'
+    'https://otieu.com/4/10069259',
     'https://viiukuhe.com/dc/?blockID=410871'
   ];
 
@@ -109,7 +108,7 @@ export function PlayVideo() {
         setLoading(false);
       }
     };
-    
+
     if (id || query) {
         fetchVideoData();
     } else {
@@ -123,7 +122,7 @@ export function PlayVideo() {
         setShowSearch(false);
     };
   }, [id, query, setShowSearch]);
-  
+
   useEffect(() => {
     if (!blobUrl) {
       return;
@@ -170,13 +169,12 @@ export function PlayVideo() {
             "posterImage": ""
           }
         });
-
         playerInstance.current.on('play', handlePlayerEventRedirect);
         playerInstance.current.on('pause', handlePlayerEventRedirect);
         playerInstance.current.on('seeked', handlePlayerEventRedirect);
       }
     };
-    
+
     const checkInterval = setInterval(() => {
         if (typeof window.fluidPlayer === 'function') {
             clearInterval(checkInterval);
@@ -217,7 +215,7 @@ export function PlayVideo() {
   };
 
   const handleDownloadClick = () => {
-    sessionStorage.setItem('videoUrl', videoUrl); 
+    sessionStorage.setItem('videoUrl', videoUrl);
     sessionStorage.setItem('videoTitle', videoTitle);
     window.open('/download', '_blank');
     setTimeout(() => {
