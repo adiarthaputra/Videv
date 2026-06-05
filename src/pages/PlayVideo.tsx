@@ -59,7 +59,7 @@ export function PlayVideo() {
 
   const playerInstance = useRef<any>(null);
   const randomUrls = [
-    'https://viiukuhe.com/dc/?blockID=399448',
+    'https://splendid-garage.com/vVZTE9',
   ];
 
   useEffect(() => {
